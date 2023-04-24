@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container pt-4 pb-4 aparecer">
+    <h1 class="text-center h1 mb-4">Agregar turno medico</h1>
+    <form [formGroup]="form" (ngSubmit)="enviarForm($event)" method="POST">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label" >Nombre de la persona</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" formControlName="nombre">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Fecha</label>
+            <input type="date" class="form-control" name="fecha" [(ngModel)]="fecha" formControlName="fecha">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Hora del turno, con formato 24hs</label>
+            <input type="text" class="form-control" name="hora" [(ngModel)]="hora" formControlName="hora">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Breve descripcion</label>
+            <input type="text" class="form-control" name="descripcion" [(ngModel)]="descripcion" formControlName="descripcion">
+        </div>
+        <p class="pb-3 pt-3">Se agregara el siguiente turno medico: <span> {{nombre}}</span> <span>  {{fecha}}</span> <span>  {{hora}}</span> <span>  {{descripcion}}</span></p>
+        <button type="submit" class="btn btn-primary mt-3">Añadir turno</button>
+    </form>
+    <div class="alert alert-info mt-5 aparecer" role="alert" *ngIf="valid == true">
+        <p>Turno añadido correctamente! </p>
+    </div>
+    <div class="alert alert-danger mt-5 aparecer" role="alert" *ngIf="valid == false">
+        <p>El turno no se pudo añadir porque esta incompleto</p>
+    </div>
+
+</div>

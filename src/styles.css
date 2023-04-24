@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: 'Schibsted Grotesk', sans-serif;
+}
+
+p{
+    margin: 0;
+}
+
+.aparecer{
+    animation: aparecer .7s forwards;
+}
+
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
